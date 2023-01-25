@@ -1,0 +1,20 @@
+<h2>{{ title }}</h2>
+<hr />
+OKKK
+<section id="form">
+    <form (ngSubmit)="onSubmit()" #formTask="ngForm">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input [(ngModel)]="task.nome" name="nome" rows="5" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="cep">Cep</label>
+            <input [(ngModel)]="task.cep" id="cep" name="cep" rows="5" class="form-control">
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary mr-2">Salvar</button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['']">Cancelar</button>
+    </form>
+</section>

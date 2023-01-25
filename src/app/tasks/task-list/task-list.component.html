@@ -1,0 +1,41 @@
+<h2>Endereços</h2>
+<hr />
+
+<button type="button" class="btn btn-primary mb-2" [routerLink]="['/new']">
+    Cadastrar Endereço
+</button>
+
+<section>
+    <div *ngIf="tasks.length == 0" class="alert alert-warning" role="alert">
+        Nenhum endereço cadastrado.
+    </div>
+
+    <table class="table table-striped mt-5" *ngIf="tasks.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Cep</th>
+          <th scope="col">Logradouro</th>
+          <th scope="col">Complemento</th>
+          <th scope="col">Bairro</th>
+          <th scope="col">Localidade</th>
+          <th scope="col">UF</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{task.id}}</td>
+          <td>{{task.nome}}</td>
+          <th>{{task.cep}}</th>
+          <th>{{task.logradouro}}</th>
+          <th>{{task.complemento}}</th>
+          <th>{{task.bairro}}</th>
+          <th>{{task.localidade}}</th>
+          <th>{{task.uf}}</th>
+          <th><app-task-list-item [task]="task" class="task-item" (onDeleteTask)="onTaskDeleted($event)"></app-task-list-item></th>
+        </tr>
+      </tbody>
+    </table>
+</section>
